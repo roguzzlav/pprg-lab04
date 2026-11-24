@@ -7,7 +7,7 @@
 
 foreach (string item in lista)
 {
-    Console.WriteLine(item+" ");
+    Console.WriteLine(item);
 }
 
 Console.WriteLine("Liczba przedmiotów: "+lista.Count());
@@ -27,6 +27,8 @@ do
         nameToAdd = nameCheck;
 }while(nameToAdd.IsWhiteSpace());
 
+lista.Add(nameToAdd);
+
 string nameToRemove = "";
 
 do
@@ -38,7 +40,20 @@ do
         Console.WriteLine("Nieprawdiłowa nazwa");
     else if(lista.Contains(nameCheck))
     {
-        
+        nameToRemove = nameCheck;
     }
-    
+    else
+    {
+        Console.WriteLine("Podany przedmiot nie znajduje się na liście \n -------------------------");
+    }
 }while(nameToRemove.IsWhiteSpace());
+
+lista.Remove(nameToRemove);
+Console.WriteLine($"Usunięto przedmiot {nameToRemove}");
+Console.WriteLine("-------------------------");
+
+Console.WriteLine("Zaktualizowana lista: ");
+foreach (string item in lista)
+{
+    Console.WriteLine(item);
+}
