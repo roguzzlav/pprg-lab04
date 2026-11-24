@@ -48,9 +48,16 @@ do
     }
 }while(nameToRemove.IsWhiteSpace());
 
-lista.Remove(nameToRemove);
-Console.WriteLine($"Usunięto przedmiot {nameToRemove}");
-Console.WriteLine("-------------------------");
+bool deletionResult = lista.Remove(nameToRemove);
+if(deletionResult)
+{    
+    Console.WriteLine($"Usunięto przedmiot {nameToRemove}");
+    Console.WriteLine("-------------------------");
+}
+else
+{
+    Console.WriteLine("Nie udało usunąć się przedmiotu");
+}
 
 Console.WriteLine("Zaktualizowana lista: ");
 foreach (string item in lista)
